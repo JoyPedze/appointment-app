@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Appointment } from '../models/appointment';
 
 @Component({
   selector: 'app-appointment-list',
@@ -6,5 +7,26 @@ import { Component } from '@angular/core';
   styleUrl: './appointment-list.component.css'
 })
 export class AppointmentListComponent {
-  appointment:String = "first appointment";
+  appointmentTitle:string = "";
+  appointmentDate:Date = new Date();
+  appointments:Appointment[] = [];
+
+  addAppointment(){
+    //check if fields are not empty
+    if(this.appointmentTitle.trim().length && this.appointmentDate){
+      //create an Appointment
+      let newAppointment:Appointment = {
+        id: Date.now(),
+        title:this.appointmentTitle,
+        date:this.appointmentDate
+      }
+      //adding them to our array
+      this.appointments.push(newAppointment);
+      //resetting the fields
+      this.appointmentTitle = "";
+      this.appointmentDate = new Date();
+
+      alert(this.appointments.length)
+    }
+  }
 }

@@ -1,1 +1,5 @@
-<p>{{appointment}}</p>
+<div>
+    <input [(ngModel)]="appointmentTitle" type="text" placeholder="Appointment Description">
+    <input [(ngModel)]="appointmentDate" type="date" placeholder="Appointment Date">
+    <button (click)="addAppointment()">Add</button>
+</div>
