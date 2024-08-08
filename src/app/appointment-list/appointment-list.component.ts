@@ -25,8 +25,6 @@ export class AppointmentListComponent {
       //resetting the fields
       this.appointmentTitle = "";
       this.appointmentDate = new Date();
-
-      alert(this.appointments.length)
     }
   }
 
